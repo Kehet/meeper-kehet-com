@@ -5,7 +5,7 @@
             <x-time :time="$post->created_at"/>
         </div>
 
-        @if(true)
+        @if(\Illuminate\Support\Facades\Auth::check())
             <div class="mt-1">
 
                 <form method="POST" action="{{ route('posts.destroy', [$post->id]) }}">

@@ -2,17 +2,30 @@
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a href="{{ route('home') }}"
            class="flex title-font font-medium items-center text-gray-900 dark:text-white mb-4 md:mb-0">
-            <x-application-logo />
+            <x-application-logo/>
             <span class="ml-3 text-xl">{{ config('app.name', 'Laravel') }}</span>
         </a>
         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">New Post</x-nav-link>
-
             {{--
             <x-nav-link href="" onclick="localStorage.theme = 'light'; updateTheme()">light</x-nav-link>
             <x-nav-link href="" onclick="localStorage.theme = 'dark'; updateTheme()">dark</x-nav-link>
             <x-nav-link href="" onclick="localStorage.removeItem('theme'); updateTheme()">os</x-nav-link>
             --}}
+
+            @auth
+                <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">New Post</x-nav-link>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-nav-link href="" onclick="event.preventDefault();this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-nav-link>
+                </form>
+            @endauth
+
+            @guest
+                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">Login</x-nav-link>
+            @endguest
 
         </nav>
         {{--
