@@ -91,6 +91,11 @@ return [
         ForbiddenPrivateMethods::class => [
             'title' => 'The usage of private methods is not idiomatic in Laravel.',
         ],
+        \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
+            'lineLimit' => 140,
+            'absoluteLineLimit' => 240,
+            'ignoreComments' => false,
+        ]
     ],
 
     /*
