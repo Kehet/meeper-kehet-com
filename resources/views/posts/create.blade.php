@@ -3,7 +3,7 @@
 
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
             <x-header>
-                New Post
+                {{ __('New Post') }}
             </x-header>
 
             <form action="{{ route('posts.store') }}" method="post">
@@ -13,7 +13,7 @@
                 @include('posts.partials.form', ['post' => $post])
 
                 <div class="p-2 w-full">
-                    <x-button type="block">Create</x-button>
+                    <x-button type="block">{{ __('Create') }}</x-button>
                 </div>
 
             </form>

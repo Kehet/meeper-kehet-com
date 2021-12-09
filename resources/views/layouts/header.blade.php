@@ -24,7 +24,7 @@
             @endauth
 
             @guest
-                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">Login</x-nav-link>
+                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">{{ __('Login') }}</x-nav-link>
             @endguest
 
         </nav>

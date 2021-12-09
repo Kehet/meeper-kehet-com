@@ -13,10 +13,10 @@
                     @method('DELETE')
                     <a href="{{ route('posts.edit', [$post->id]) }}"
                        class="text-yellow-500 dark:text-yellow-400 inline-flex items-center mt-4">
-                        Edit
+                        {{ __('Edit') }}
                     </a> |
                     <a href="" class="text-yellow-500 dark:text-yellow-400 inline-flex items-center mt-4"
-                       onclick="event.preventDefault(); this.closest('form').submit();">Delete</a>
+                       onclick="event.preventDefault(); this.closest('form').submit();">{{ __('Delete') }}</a>
                 </form>
             </div>
         @endif
@@ -33,7 +33,7 @@
         @if($preview ?? true)
             <a href="{{ route('posts.show', [$post->id]) }}"
                class="text-yellow-500 dark:text-yellow-400 inline-flex items-center mt-4">
-                Read More
+                {{ __('Read More') }}
                 <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
                      stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14"></path>

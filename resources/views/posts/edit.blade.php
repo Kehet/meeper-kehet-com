@@ -3,13 +3,13 @@
 
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
             <x-header>
-                Edit post
+                {{ __('Edit post') }}
                 <x-slot name="description">
                     {{ $post->title }}
                 </x-slot>
             </x-header>
 
-            <form action="{{ route('posts.store') }}" method="post">
+            <form action="{{ route('posts.update', [$post->id]) }}" method="post">
 
                 @csrf
                 @method('PUT')
@@ -17,7 +17,7 @@
                 @include('posts.partials.form', ['post' => $post])
 
                 <div class="p-2 w-full">
-                    <x-button type="block">Update</x-button>
+                    <x-button type="block">{{ __('Update') }}</x-button>
                 </div>
 
             </form>
