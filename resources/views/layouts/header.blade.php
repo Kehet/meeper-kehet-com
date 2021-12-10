@@ -5,7 +5,10 @@
             <x-application-logo/>
             <span class="ml-3 text-xl">{{ config('app.name', 'Laravel') }}</span>
         </a>
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+
+        <x-search class="mx-3" />
+
+        <nav class="flex flex-wrap items-center text-base justify-center">
             {{--
             <x-nav-link href="" onclick="localStorage.theme = 'light'; updateTheme()">light</x-nav-link>
             <x-nav-link href="" onclick="localStorage.theme = 'dark'; updateTheme()">dark</x-nav-link>

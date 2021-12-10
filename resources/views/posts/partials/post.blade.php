@@ -41,5 +41,18 @@
                 </svg>
             </a>
         @endif
+
+        <div class="mt-3">
+            @foreach($post->tags as $tag)
+                <a href="{{ route('search', ['query' => $tag->name]) }}"
+                   class="text-white rounded text-xs
+            bg-yellow-500 hover:bg-yellow-600 duration-300
+            mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1">
+                    <i class="mdi mdi-cloud-outline mr-2"></i>
+                    {{ $tag->name }}
+                </a>
+            @endforeach
+        </div>
+
     </div>
 </div>

@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
+use Laravel\Scout\Searchable;
+use Spatie\Tags\HasTags;
 
 class Post extends Model
 {
     use HasFactory;
+    use HasTags;
+    use Searchable;
 
     protected $table = 'posts';
 
@@ -42,5 +46,17 @@ class Post extends Model
         self::updated(function ($model) {
             Cache::forget('message|' . $model->id);
         });
+    }
+
+    public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'body' => $this->body,
+            'tags' => $this->tags->map(function($tag) {
+                return $tag->name;
+            })->toArray(),
+        ];
     }
 }

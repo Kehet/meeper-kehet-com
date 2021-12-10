@@ -9,3 +9,9 @@
     <x-textarea id="body" name="body" :value="old('body', $post->body)" rows="6"/>
     <x-validation-errors field="body" />
 </div>
+
+<div class="p-2 w-full">
+    <x-label for="tags">{{ __('Tags') }}</x-label>
+    <x-input type="text" id="tags" name="tags" :value="old('tags',  $post->tags->implode(','))"/>
+    <x-validation-errors field="tags" />
+</div>

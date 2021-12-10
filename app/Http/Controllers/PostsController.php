@@ -26,8 +26,10 @@ class PostsController extends Controller
     {
         abort_unless(Auth::check(), 401);
 
-        $post = new Post($request->all());
+        $post = new Post($request->except('tags'));
         Auth::user()->posts()->save($post);
+
+        $post->attachTags(explode(',', $request->get('tags')));
 
         return redirect()->route('posts.show', [$post->id]);
     }
