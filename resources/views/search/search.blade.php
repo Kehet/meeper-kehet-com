@@ -5,12 +5,16 @@
             {{ __('Search results for ":query"', compact('query')) }}
         </x-header>
 
-        <div class="-my-8 divide-y-2 divide-gray-100 dark:divide-gray-800">
-            @if($showResults)
+
+        @if($showResults)
+            <div class="-my-8 divide-y-2 divide-gray-100 dark:divide-gray-800">
                 @each('posts.partials.post', $results, 'post', 'search.partials.empty')
-            @else
-                <i>Too short search</i>
-            @endif
-        </div>
+            </div>
+            <div class="mt-6">
+                {{ $results->links() }}
+            </div>
+        @else
+            <i>Too short search</i>
+        @endif
     </div>
 </x-app-layout>

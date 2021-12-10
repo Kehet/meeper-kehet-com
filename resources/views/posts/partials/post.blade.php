@@ -30,26 +30,14 @@
         <div class="leading-relaxed">
             {!! $post->html !!}
         </div>
-        @if($preview ?? true)
-            <a href="{{ route('posts.show', [$post->id]) }}"
-               class="text-yellow-500 dark:text-yellow-400 inline-flex items-center mt-4">
-                {{ __('Read More') }}
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
-                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                </svg>
-            </a>
-        @endif
 
         <div class="mt-3">
             @foreach($post->tags as $tag)
-                <a href="{{ route('search', ['query' => $tag->name]) }}"
+                <a href="{{ route('search', ['query' => $tag]) }}"
                    class="text-white rounded text-xs
             bg-yellow-500 hover:bg-yellow-600 duration-300
             mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1">
-                    <i class="mdi mdi-cloud-outline mr-2"></i>
-                    {{ $tag->name }}
+                   {{ $tag }}
                 </a>
             @endforeach
         </div>

@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
-use Spatie\Tags\HasTags;
 
 class Post extends Model
 {
     use HasFactory;
-    use HasTags;
     use Searchable;
 
     protected $table = 'posts';
@@ -21,10 +19,15 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body',
+        'tags',
     ];
 
     protected $appends = [
         'html',
+    ];
+
+    protected $casts = [
+        'tags' => 'collection',
     ];
 
     public function getHtmlAttribute(): string
@@ -32,6 +35,16 @@ class Post extends Model
         return Cache::rememberForever('message|' . $this->id, function () {
             return Str::markdown($this->body);
         });
+    }
+
+    public function setTagsAttribute($value)
+    {
+        if(is_string($value)) {
+            $this->attributes['tags'] = collect(explode(',', $value));
+            return;
+        }
+
+        $this->attributes['tags'] = $value;
     }
 
     public function user(): BelongsTo
@@ -54,9 +67,7 @@ class Post extends Model
             'id' => $this->id,
             'title' => $this->title,
             'body' => $this->body,
-            'tags' => $this->tags->map(function($tag) {
-                return $tag->name;
-            })->toArray(),
+            'tags' => $this->tags->toArray(),
         ];
     }
 }

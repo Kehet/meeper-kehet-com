@@ -10,11 +10,11 @@ class SearchController extends Controller
     public function __invoke(Request $request)
     {
         $query = $request->get('query');
-        $results = [];
+        $results = null;
         $showResults = false;
 
-        if(!empty($query) && strlen($query) > 3) {
-            $results = Post::search($query)->get();
+        if(!empty($query) && strlen($query) > 2) {
+            $results = Post::search($query)->paginate();
             $showResults = true;
         }
 

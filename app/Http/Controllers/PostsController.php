@@ -11,7 +11,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('user')->latest()->get();
+        $posts = Post::with('user')->latest()->paginate();
         return view('posts.index', compact('posts'));
     }
 
@@ -26,10 +26,8 @@ class PostsController extends Controller
     {
         abort_unless(Auth::check(), 401);
 
-        $post = new Post($request->except('tags'));
+        $post = new Post($request->all());
         Auth::user()->posts()->save($post);
-
-        $post->attachTags(explode(',', $request->get('tags')));
 
         return redirect()->route('posts.show', [$post->id]);
     }
