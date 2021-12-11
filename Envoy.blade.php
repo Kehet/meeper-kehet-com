@@ -103,7 +103,8 @@
 @task('deployment_npm')
     echo "Installing npm dependencies..."
     cd {{ $release }}
-    npm ci --only=prod --loglevel warn
+    npm ci --loglevel warn
+    npm run prod --loglevel warn
 @endtask
 
 @task('deployment_migrate')
