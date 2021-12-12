@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Post extends Model
+class Post extends Model implements HasMedia
 {
     use HasFactory;
     use Searchable;
+    use InteractsWithMedia;
 
     protected $table = 'posts';
 
@@ -39,7 +42,7 @@ class Post extends Model
 
     public function setTagsAttribute($value)
     {
-        if(is_string($value)) {
+        if (is_string($value)) {
             $this->attributes['tags'] = collect(explode(',', $value));
             return;
         }
@@ -55,6 +58,14 @@ class Post extends Model
     protected static function boot()
     {
         parent::boot();
+
+        self::creating(function ($model) {
+            $model->tags = $model->tags ?? collect([]);
+        });
+
+        self::updating(function ($model) {
+            $model->tags = $model->tags ?? collect([]);
+        });
 
         self::updated(function ($model) {
             Cache::forget('message|' . $model->id);

@@ -6,7 +6,7 @@
                 {{ __('New Post') }}
             </x-header>
 
-            <form action="{{ route('posts.store') }}" method="post">
+            <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
 
                 @csrf
 

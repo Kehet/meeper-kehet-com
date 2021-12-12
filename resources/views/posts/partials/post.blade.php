@@ -1,5 +1,5 @@
 <div class="py-8 flex dark:border-t-2 dark:border-gray-800 flex-wrap md:flex-nowrap">
-    <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+    <div class="w-32 md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
         <span class="font-semibold title-font text-gray-700 dark:text-white">CATEGORY</span>
         <div class="mt-1 text-gray-500 text-sm">
             <x-time :time="$post->created_at"/>
@@ -7,17 +7,7 @@
 
         @if(\Illuminate\Support\Facades\Auth::check())
             <div class="mt-1">
-
-                <form method="POST" action="{{ route('posts.destroy', [$post->id]) }}">
-                    @csrf
-                    @method('DELETE')
-                    <a href="{{ route('posts.edit', [$post->id]) }}"
-                       class="text-yellow-500 dark:text-yellow-400 inline-flex items-center mt-4">
-                        {{ __('Edit') }}
-                    </a> |
-                    <a href="" class="text-yellow-500 dark:text-yellow-400 inline-flex items-center mt-4"
-                       onclick="event.preventDefault(); this.closest('form').submit();">{{ __('Delete') }}</a>
-                </form>
+                <x-delete-post-button :post="$post" />
             </div>
         @endif
     </div>
@@ -27,6 +17,15 @@
                 {{ $post->title }}
             </h2>
         @endisset
+
+        @if($post->hasMedia())
+            <div class="mb-2">
+                <a href="{{ $post->getFirstMedia()->getFullUrl() }}">
+                    {{ $post->getFirstMedia()()->lazy()->attributes(['class' => 'w-full object-cover h-full object-center']) }}
+                </a>
+            </div>
+        @endisset
+
         <div class="leading-relaxed">
             {!! $post->html !!}
         </div>

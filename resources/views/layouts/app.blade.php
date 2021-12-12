@@ -20,6 +20,8 @@
         }
         updateTheme();
     </script>
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body class="font-sans antialiased min-h-screen text-gray-600 dark:text-gray-400 dark:bg-gray-900 body-font">
 

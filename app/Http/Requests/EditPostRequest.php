@@ -5,13 +5,15 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class PostRequest extends FormRequest
+class EditPostRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'title' => ['required', 'min:3', 'max:255'],
-            'body' => ['required', 'min:3', 'max:1024'],
+            'title' => ['nullable', 'min:3', 'max:255'],
+            'remove_old_image' => ['boolean'],
+            'image' => ['nullable', 'image', 'max:51200'],
+            'body' => ['nullable', 'min:3', 'max:1024'],
             'tags' => ['max:2014'],
         ];
     }
