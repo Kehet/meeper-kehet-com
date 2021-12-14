@@ -10,7 +10,7 @@ class EditPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['nullable', 'min:3', 'max:255'],
+            'title' => ['nullable', 'min:2', 'max:255'],
             'remove_old_image' => ['boolean'],
             'image' => ['nullable', 'image', 'max:51200'],
             'body' => ['nullable', 'min:3', 'max:1024'],
