@@ -18,6 +18,12 @@
             </h2>
         @endisset
 
+        @if(isset($post->url))
+            <a href="{{ $post->url }}" class="text-lg font-medium text-yellow-500 dark:text-yellow-400 hover:underline mb-2">
+                {{ $post->url }}
+            </a>
+        @endisset
+
         @if($post->hasMedia())
             <div class="mb-2">
                 <a href="{{ $post->getFirstMedia()->getFullUrl() }}">
@@ -33,7 +39,7 @@
         <div class="mt-3">
             @foreach($post->tags as $tag)
                 <a href="{{ route('search', ['query' => $tag]) }}"
-                   class="text-white rounded text-xs
+                   class="text-white dark:text-gray-900 rounded text-xs
             bg-yellow-500 hover:bg-yellow-600 duration-300
             mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1">
                    {{ $tag }}

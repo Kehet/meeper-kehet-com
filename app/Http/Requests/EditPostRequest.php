@@ -13,6 +13,7 @@ class EditPostRequest extends FormRequest
             'title' => ['nullable', 'min:2', 'max:255'],
             'remove_old_image' => ['boolean'],
             'image' => ['nullable', 'image', 'max:51200'],
+            'url' => ['nullable', 'min:2', 'max:255'],
             'body' => ['nullable', 'min:3', 'max:1024'],
             'tags' => ['max:2014'],
         ];

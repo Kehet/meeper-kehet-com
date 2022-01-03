@@ -6,10 +6,10 @@
         @method('DELETE')
 
         <a href="{{ route('posts.edit', [$post->id]) }}"
-           class="text-yellow-500 dark:text-yellow-400 inline-flex items-center mt-4">
+           class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center mt-4">
             {{ __('Edit') }}
         </a> |
-        <a href="" class="text-yellow-500 dark:text-yellow-400 inline-flex items-center mt-4"
+        <a href="" class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center mt-4"
            onclick="event.preventDefault(); this.closest('form').submit();">{{ __('Delete') }}</a>
     </form>
 </div>

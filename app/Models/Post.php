@@ -22,6 +22,7 @@ class Post extends Model implements HasMedia
     protected $fillable = [
         'title',
         'body',
+        'url',
         'tags',
     ];
 
@@ -77,6 +78,7 @@ class Post extends Model implements HasMedia
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'url' => $this->url,
             'body' => $this->body,
             'tags' => $this->tags->toArray(),
         ];

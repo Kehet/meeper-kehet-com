@@ -16,6 +16,8 @@ class PostFactory extends Factory
             'user_id' => User::factory(),
             'title' => $this->faker->sentence,
             'body' => $this->faker->realText,
+            'url' => $this->faker->url,
+            'tags' => implode(',', $this->faker->words()),
         ];
     }
 }

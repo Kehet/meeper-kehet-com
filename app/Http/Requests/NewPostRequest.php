@@ -12,6 +12,7 @@ class NewPostRequest extends FormRequest
         return [
             'title' => ['nullable', 'min:2', 'max:255'],
             'image' => ['nullable', 'file', 'max:51200'],
+            'url' => ['nullable', 'min:2', 'max:255'],
             'body' => ['nullable', 'min:3', 'max:1024'],
             'tags' => ['max:2014'],
         ];

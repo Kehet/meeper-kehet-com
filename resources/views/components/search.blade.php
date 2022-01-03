@@ -6,7 +6,7 @@
                placeholder="{{ __('Search...') }}"/>
     </label>
     <button
-        class="lg:mt-2 xl:mt-0 flex-shrink-0 text-white bg-yellow-500 border-0 py-2 px-4 focus:outline-none hover:bg-yellow-600 rounded-r transition ease-in-out duration-150">
+        class="lg:mt-2 xl:mt-0 flex-shrink-0 text-white dark:text-gray-900 bg-yellow-500 border-0 py-2 px-4 focus:outline-none hover:bg-yellow-600 rounded-r transition ease-in-out duration-150">
         {{ __('Search') }}
     </button>
 </form>

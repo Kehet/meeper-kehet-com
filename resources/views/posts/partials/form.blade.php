@@ -30,6 +30,12 @@
 </div>
 
 <div class="p-2 w-full">
+    <x-label for="url">{{ __('URL') }}</x-label>
+    <x-input type="text" id="url" name="url" :value="old('url',  $post->url)"/>
+    <x-validation-errors field="url"/>
+</div>
+
+<div class="p-2 w-full">
     <x-label for="body">{{ __('Body') }}</x-label>
     <x-textarea id="body" name="body" :value="old('body', $post->body)" rows="6"/>
     <x-validation-errors field="body"/>
