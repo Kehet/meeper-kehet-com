@@ -10,12 +10,15 @@ use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Cartalyst\Tags\TaggableTrait;
+use Cartalyst\Tags\TaggableInterface;
 
-class Post extends Model implements HasMedia
+class Post extends Model implements HasMedia, TaggableInterface
 {
     use HasFactory;
     use Searchable;
     use InteractsWithMedia;
+    use TaggableTrait;
 
     protected $table = 'posts';
 
@@ -23,32 +26,21 @@ class Post extends Model implements HasMedia
         'title',
         'body',
         'url',
-        'tags',
     ];
 
     protected $appends = [
         'html',
     ];
 
-    protected $casts = [
-        'tags' => 'collection',
-    ];
-
-    public function getHtmlAttribute(): string
+    public function getHtmlAttribute(): ?string
     {
+        if($this->isDirty() || empty($this->body)) {
+            return $this->body;
+        }
+
         return Cache::rememberForever('message|' . $this->id, function () {
             return Str::markdown($this->body);
         });
-    }
-
-    public function setTagsAttribute($value)
-    {
-        if (is_string($value)) {
-            $this->attributes['tags'] = collect(explode(',', $value));
-            return;
-        }
-
-        $this->attributes['tags'] = $value;
     }
 
     public function user(): BelongsTo
@@ -59,14 +51,6 @@ class Post extends Model implements HasMedia
     protected static function boot()
     {
         parent::boot();
-
-        self::creating(function ($model) {
-            $model->tags = $model->tags ?? collect([]);
-        });
-
-        self::updating(function ($model) {
-            $model->tags = $model->tags ?? collect([]);
-        });
 
         self::updated(function ($model) {
             Cache::forget('message|' . $model->id);
@@ -80,7 +64,9 @@ class Post extends Model implements HasMedia
             'title' => $this->title,
             'url' => $this->url,
             'body' => $this->body,
-            'tags' => $this->tags->toArray(),
+            'tags' => $this->tags->map(function($tag) {
+                return $tag->name;
+            }),
         ];
     }
 }

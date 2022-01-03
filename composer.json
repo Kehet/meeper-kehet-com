@@ -5,8 +5,9 @@
     "keywords": ["fen", "meeper", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "ext-json": "*",
+        "cartalyst/tags": "^11.1",
         "doctrine/dbal": "^3.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

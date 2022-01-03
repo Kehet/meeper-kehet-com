@@ -33,7 +33,7 @@ class PostsController extends Controller
     {
         abort_unless(Auth::check(), 401);
 
-        $post = new Post($request->except('image'));
+        $post = new Post($request->except(['image', 'tags']));
         Auth::user()->posts()->save($post);
 
         if($request->hasFile('image')) {
@@ -41,6 +41,8 @@ class PostsController extends Controller
                 ->withResponsiveImages()
                 ->toMediaCollection();
         }
+
+        $post->tag($request->input('tags'));
 
         return redirect()->route('posts.show', [$post->id]);
     }
@@ -66,7 +68,7 @@ class PostsController extends Controller
     {
         abort_unless(Auth::check(), 401);
 
-        $post->update($request->all());
+        $post->update($request->except(['image', 'tags']));
 
         if($request->input('remove_old_image', false) && $post->hasMedia()) {
             $post->getFirstMedia()->delete();
@@ -77,6 +79,8 @@ class PostsController extends Controller
                 ->withResponsiveImages()
                 ->toMediaCollection();
         }
+
+        $post->setTags($request->input('tags'));
 
         return redirect()->route('posts.show', [$post->id]);
     }

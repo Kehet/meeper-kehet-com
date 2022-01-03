@@ -43,6 +43,6 @@
 
 <div class="p-2 w-full">
     <x-label for="tags">{{ __('Tags') }}</x-label>
-    <x-input type="text" id="tags" name="tags" :value="old('tags',  optional($post->tags)->implode(','))"/>
+    <x-input type="text" id="tags" name="tags" :value="old('tags',  optional($post->tags)->map(fn($tag) => $tag->name)->implode(','))"/>
     <x-validation-errors field="tags"/>
 </div>

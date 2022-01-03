@@ -38,11 +38,11 @@
 
         <div class="mt-3">
             @foreach($post->tags as $tag)
-                <a href="{{ route('search', ['query' => $tag]) }}"
+                <a href="{{ route('search', ['query' => $tag->name]) }}"
                    class="text-white dark:text-gray-900 rounded text-xs
             bg-yellow-500 hover:bg-yellow-600 duration-300
             mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1">
-                   {{ $tag }}
+                   {{ $tag->name }}
                 </a>
             @endforeach
         </div>
