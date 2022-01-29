@@ -16,7 +16,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/scout": "^9.3",
         "laravel/tinker": "^2.5",
-        "meilisearch/meilisearch-php": "^0.20.0",
+        "meilisearch/meilisearch-php": "^0.21.0",
         "spatie/laravel-medialibrary": "^9.0.0"
     },
     "require-dev": {
