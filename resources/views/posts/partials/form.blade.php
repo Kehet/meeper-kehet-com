@@ -46,3 +46,9 @@
     <x-input type="text" id="tags" name="tags" :value="old('tags',  optional($post->tags)->map(fn($tag) => $tag->name)->implode(','))"/>
     <x-validation-errors field="tags"/>
 </div>
+
+<div class="p-2 w-full">
+    <x-label for="category_id">{{ __('Category') }}</x-label>
+    <x-select id="category_id" name="category_id" :value="old('category_id',  $post->category_id)" :options="$categories"/>
+    <x-validation-errors field="category_id"/>
+</div>

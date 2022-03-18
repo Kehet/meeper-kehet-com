@@ -17,7 +17,6 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence,
             'body' => $this->faker->realText,
             'url' => $this->faker->url,
-            'tags' => implode(',', $this->faker->words()),
         ];
     }
 }

@@ -9,7 +9,7 @@
                     @foreach($tags as $tag)
                         <li>
                             <a href="{{ route('search', ['query' => $tag->name]) }}"
-                               class="dark:text-gray-400 dark:hover:text-white">
+                               class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
                                 {{ $tag->name }}
                             </a>
                             <span class="text-gray-500 text-sm">
@@ -27,7 +27,7 @@
                     @foreach($latest as $post)
                         <li>
                             <a href="{{ route('posts.show', [$post->id]) }}"
-                               class="dark:text-gray-400 dark:hover:text-white">
+                               class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
                                 {{ $post->title }}
                             </a>
                             <span class="text-gray-500 text-sm">

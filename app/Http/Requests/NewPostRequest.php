@@ -10,6 +10,7 @@ class NewPostRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'category_id' => ['required', 'exists:categories,id'],
             'title' => ['nullable', 'min:2', 'max:255'],
             'image' => ['nullable', 'file', 'max:51200'],
             'url' => ['nullable', 'min:2', 'max:255'],

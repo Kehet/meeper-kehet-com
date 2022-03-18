@@ -7,7 +7,6 @@ use App\Http\Requests\NewPostRequest;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {

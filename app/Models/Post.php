@@ -23,6 +23,7 @@ class Post extends Model implements HasMedia, TaggableInterface
     protected $table = 'posts';
 
     protected $fillable = [
+        'category_id',
         'title',
         'body',
         'url',
@@ -34,7 +35,7 @@ class Post extends Model implements HasMedia, TaggableInterface
 
     public function getHtmlAttribute(): ?string
     {
-        if($this->isDirty() || empty($this->body)) {
+        if(empty($this->body) || $this->isDirty()) {
             return $this->body;
         }
 
@@ -46,6 +47,11 @@ class Post extends Model implements HasMedia, TaggableInterface
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 
     protected static function boot()
@@ -67,6 +73,7 @@ class Post extends Model implements HasMedia, TaggableInterface
             'tags' => $this->tags->map(function($tag) {
                 return $tag->name;
             }),
+            'category' => $this->category->name,
         ];
     }
 }

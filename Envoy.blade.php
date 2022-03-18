@@ -162,5 +162,5 @@
 @endtask
 
 @finished
-	@telegram($telegramBot, $telegramChat)
+	@telegram($telegramBot, $telegramChat, 'Meeper deployed ' . $release)
 @endfinished
