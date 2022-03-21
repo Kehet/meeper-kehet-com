@@ -26,7 +26,7 @@
                 <nav class="list-none mb-10">
                     @foreach($latest as $post)
                         <li>
-                            <a href="{{ route('posts.show', [$post->id]) }}"
+                            <a href="{{ route('posts.show', [$post]) }}"
                                class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
                                 {{ $post->title }}
                             </a>
@@ -44,7 +44,7 @@
                 <nav class="list-none mb-10">
                     @foreach($categories as $category)
                         <li>
-                            <a href="{{ route('categories.show', [$category->id]) }}"
+                            <a href="{{ route('categories.show', [$category]) }}"
                                class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
                                 {{ $category->name }}
                             </a>

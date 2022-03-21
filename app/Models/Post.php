@@ -12,6 +12,8 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Cartalyst\Tags\TaggableTrait;
 use Cartalyst\Tags\TaggableInterface;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Post extends Model implements HasMedia, TaggableInterface
 {
@@ -19,6 +21,7 @@ class Post extends Model implements HasMedia, TaggableInterface
     use Searchable;
     use InteractsWithMedia;
     use TaggableTrait;
+    use HasSlug;
 
     protected $table = 'posts';
 
@@ -75,5 +78,17 @@ class Post extends Model implements HasMedia, TaggableInterface
             }),
             'category' => $this->category->name,
         ];
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+                          ->generateSlugsFrom('title')
+                          ->saveSlugsTo('slug');
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }
