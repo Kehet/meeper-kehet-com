@@ -2,8 +2,8 @@
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap md:text-left text-center order-first">
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
-                    TAGS
+                <h2 class="uppercase  title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
+                    Tags
                 </h2>
                 <nav class="list-none mb-10">
                     @foreach($tags as $tag)
@@ -20,8 +20,8 @@
                 </nav>
             </div>
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
-                    LATEST
+                <h2 class="uppercase  title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
+                    Latest
                 </h2>
                 <nav class="list-none mb-10">
                     @foreach($latest as $post)
@@ -38,9 +38,22 @@
                 </nav>
             </div>
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam beatae consequatur cum, distinctio ea labore magnam magni mollitia nisi porro quam tempore ut. Accusamus, consectetur dignissimos maxime non reprehenderit rerum?
-                </p>
+                <h2 class="uppercase title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
+                    Categories
+                </h2>
+                <nav class="list-none mb-10">
+                    @foreach($categories as $category)
+                        <li>
+                            <a href="{{ route('categories.show', [$category->id]) }}"
+                               class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
+                                {{ $category->name }}
+                            </a>
+                            <span class="text-gray-500 text-sm">
+                                {{ $category->posts_count }} posts
+                            </span>
+                        </li>
+                    @endforeach
+                </nav>
             </div>
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
                 <x-search class="mx-3" />

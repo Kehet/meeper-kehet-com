@@ -1,7 +1,7 @@
 <div class="py-8 flex dark:border-t-2 dark:border-gray-800 flex-wrap md:flex-nowrap">
     <div class="w-32 md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-        <a href="{{ route('search', ['query' => $post->category->name]) }}"
-           class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
+        <a href="{{ route('categories.show', [$post->category->id]) }}"
+           class="uppercase title-font text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
             {{ $post->category->name }}
         </a>
         <div class="mt-1 text-gray-500 text-sm">
