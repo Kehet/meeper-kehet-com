@@ -43,7 +43,7 @@ class PostsController extends Controller
 
         $post->tag($request->input('tags'));
 
-        return redirect()->route('posts.show', [$post->id]);
+        return redirect()->route('posts.show', [$post]);
     }
 
     public function show(Post $post)
@@ -81,7 +81,7 @@ class PostsController extends Controller
 
         $post->setTags($request->input('tags'));
 
-        return redirect()->route('posts.show', [$post->id]);
+        return redirect()->route('posts.show', [$post]);
     }
 
     public function destroy(Post $post): RedirectResponse

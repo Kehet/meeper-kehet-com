@@ -1,11 +1,11 @@
 @props(['post'])
 
 <div class="mt-1">
-    <form method="POST" action="{{ route('posts.destroy', [$post->id]) }}">
+    <form method="POST" action="{{ route('posts.destroy', [$post]) }}">
         @csrf
         @method('DELETE')
 
-        <a href="{{ route('posts.edit', [$post->id]) }}"
+        <a href="{{ route('posts.edit', [$post]) }}"
            class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center mt-4">
             {{ __('Edit') }}
         </a> |
