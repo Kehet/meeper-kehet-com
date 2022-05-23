@@ -9,7 +9,7 @@
                 </x-slot>
             </x-header>
 
-            <form action="{{ route('posts.update', [$post->id]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('posts.update', [$post]) }}" method="post" enctype="multipart/form-data">
 
                 @csrf
                 @method('PUT')
