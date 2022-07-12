@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+
+  app:
+    image: 'registry.gitlab.com/seafen02/fen-meeper:latest'
+    restart: unless-stopped
+    depends_on:
+      - mariadb
+    volumes:
+      - ./php.ini:/opt/bitnami/php/etc/conf.d/custom.ini
+      - app_data:/app/storage
+
+  nginx:
+    image: 'bitnami/nginx:1.23'
+    restart: unless-stopped
+    environment:
+      WWWUSER: 'www-data'
+      WWWGROUP: 'www-data'
+    depends_on:
+      - app
+    ports:
+      - '8001:8080'
+    volumes:
+      - ./nginx.conf:/opt/bitnami/nginx/conf/server_blocks/myapp.conf
+
+  mariadb:
+    image: 'bitnami/mariadb:10.8'
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: 'secret'
+      MARIADB_USER: 'user'
+      MARIADB_PASSWORD: 'password'
+      MARIADB_DATABASE: 'database'
+      MARIADB_SKIP_TEST_DB: 'yes'
+    volumes:
+      - mariadb_data:/bitnami/mariadb
+
+  meilisearch:
+    image: 'getmeili/meilisearch:v0.28'
+    restart: unless-stopped
+    environment:
+      MEILI_MASTER_KEY: 'secret'
+      MEILI_NO_ANALYTICS: ''
+    volumes:
+      - meilisearch_data:/meili_data
+
+volumes:
+  app_data:
+    driver: local
+  mariadb_data:
+    driver: local
+  meilisearch_data:
+    driver: local
