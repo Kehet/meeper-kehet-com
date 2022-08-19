@@ -115,8 +115,6 @@
     php {{ $release }}/artisan view:clear --quiet
     php {{ $release }}/artisan cache:clear --quiet
     php {{ $release }}/artisan config:cache --quiet
-    php {{ $release }}/artisan scout:flush "App\Models\Post"
-    php {{ $release }}/artisan scout:import "App\Models\Post"
     echo "Cache cleared"
 @endtask
 

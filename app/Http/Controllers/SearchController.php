@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Spatie\Searchable\Search;
 
 class SearchController extends Controller
 {
@@ -14,7 +15,12 @@ class SearchController extends Controller
         $showResults = false;
 
         if(!empty($query) && strlen($query) > 2) {
-            $results = Post::search($query)->paginate();
+            $results = Post::with('category', 'tags')
+                ->where('title', 'like', '%'.$query.'%')
+                ->orWhere('body', 'like', '%'.$query.'%')
+                ->orWhere('url', 'like', '%'.$query.'%')
+                ->paginate();
+
             $showResults = true;
         }
 

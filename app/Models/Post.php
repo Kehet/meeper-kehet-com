@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
-use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Cartalyst\Tags\TaggableTrait;
@@ -18,7 +17,6 @@ use Spatie\Sluggable\SlugOptions;
 class Post extends Model implements HasMedia, TaggableInterface
 {
     use HasFactory;
-    use Searchable;
     use InteractsWithMedia;
     use TaggableTrait;
     use HasSlug;
