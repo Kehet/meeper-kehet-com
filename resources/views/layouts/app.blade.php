@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
 
     <script>
         const updateTheme = () => {
@@ -21,7 +21,7 @@
         updateTheme();
     </script>
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
 </head>
 <body class="font-sans antialiased min-h-screen text-gray-600 dark:text-gray-400 dark:bg-gray-900 body-font">
 
