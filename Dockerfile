@@ -15,6 +15,9 @@ WORKDIR /var/www
 COPY --from=node /var/www /var/www
 RUN /usr/bin/composer install --optimize-autoloader --no-dev
 
+RUN chown -R www-data:www-data /var/www
+RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
 EXPOSE 80
 
 ENTRYPOINT ["/run.sh"]
