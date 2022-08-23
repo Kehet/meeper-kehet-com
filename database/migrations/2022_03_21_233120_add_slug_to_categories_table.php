@@ -9,8 +9,13 @@ class AddSlugToCategoriesTable extends Migration
 {
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->string('slug');
+        $driver = Schema::connection($this->getConnection())->getConnection()->getDriverName();
+        Schema::table('categories', function (Blueprint $table) use($driver) {
+            if ('sqlite' === $driver) {
+                $table->string('slug')->default('');
+            } else {
+                $table->string('slug');
+            }
         });
 
         Category::all()->each(function($category) {

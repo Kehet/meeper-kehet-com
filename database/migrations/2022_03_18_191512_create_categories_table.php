@@ -16,8 +16,13 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('posts', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\Category::class);
+        $driver = Schema::connection($this->getConnection())->getConnection()->getDriverName();
+        Schema::table('posts', function (Blueprint $table) use($driver) {
+            if ('sqlite' === $driver) {
+                $table->foreignIdFor(\App\Models\Category::class)->default('');
+            } else {
+                $table->foreignIdFor(\App\Models\Category::class);
+            }
         });
     }
 

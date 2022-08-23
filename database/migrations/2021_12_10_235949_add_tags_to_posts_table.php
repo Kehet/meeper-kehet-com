@@ -8,8 +8,13 @@ class AddTagsToPostsTable extends Migration
 {
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->json('tags');
+        $driver = Schema::connection($this->getConnection())->getConnection()->getDriverName();
+        Schema::table('posts', function (Blueprint $table) use ($driver) {
+            if ('sqlite' === $driver) {
+                $table->json('tags')->default('[]');
+            } else {
+                $table->json('tags');
+            }
         });
     }
 
