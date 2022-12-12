@@ -3981,16 +3981,16 @@
         },
         {
             "name": "spatie/laravel-sluggable",
-            "version": "3.4.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-sluggable.git",
-                "reference": "e3b102ef0f0a0bfbba1eca5961a8e33207c76028"
+                "reference": "8d42bbfac13302e9bfbcc869ea5579c235aa4981"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-sluggable/zipball/e3b102ef0f0a0bfbba1eca5961a8e33207c76028",
-                "reference": "e3b102ef0f0a0bfbba1eca5961a8e33207c76028",
+                "url": "https://api.github.com/repos/spatie/laravel-sluggable/zipball/8d42bbfac13302e9bfbcc869ea5579c235aa4981",
+                "reference": "8d42bbfac13302e9bfbcc869ea5579c235aa4981",
                 "shasum": ""
             },
             "require": {
@@ -4028,8 +4028,7 @@
                 "spatie"
             ],
             "support": {
-                "issues": "https://github.com/spatie/laravel-sluggable/issues",
-                "source": "https://github.com/spatie/laravel-sluggable/tree/3.4.0"
+                "source": "https://github.com/spatie/laravel-sluggable/tree/3.4.1"
             },
             "funding": [
                 {
@@ -4037,7 +4036,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-28T11:21:33+00:00"
+            "time": "2022-12-07T13:04:11+00:00"
         },
         {
             "name": "spatie/temporary-directory",
