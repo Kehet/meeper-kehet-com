@@ -1,4 +1,4 @@
-FROM node:19-alpine as node
+FROM node:20-alpine as node
 
 RUN mkdir /var/www
 WORKDIR /var/www
