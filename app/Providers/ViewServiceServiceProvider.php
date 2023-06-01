@@ -9,27 +9,27 @@ use Illuminate\Support\ServiceProvider;
 
 class ViewServiceServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
-        //
+
     }
 
-    public function boot()
+    public function boot(): void
     {
         View::composer('layouts.footer', static function ($view) {
             $tags = Post::allTags()
-                              ->orderBy('count', 'desc')
-                              ->take(5)
-                              ->get();
+                ->orderBy('count', 'desc')
+                ->take(5)
+                ->get();
 
             $latest = Post::latest()
-                          ->take(5)
-                          ->get();
+                ->take(5)
+                ->get();
 
             $categories = Category::withCount('posts')
-                                  ->orderBy('posts_count', 'desc')
-                                  ->get();
-            
+                ->orderBy('posts_count', 'desc')
+                ->get();
+
             $view->with('tags', $tags);
             $view->with('latest', $latest);
             $view->with('categories', $categories);
@@ -37,10 +37,10 @@ class ViewServiceServiceProvider extends ServiceProvider
 
         View::composer('posts.partials.form', static function ($view) {
             $view->with('categories', Category::orderBy('name')
-                                              ->get()
-                                              ->mapWithKeys(function ($category, $key) {
-                                                  return [$category->id => $category->name];
-                                              }));
+                ->get()
+                ->mapWithKeys(function ($category, $key) {
+                    return [$category->id => $category->name];
+                }));
         });
     }
 }

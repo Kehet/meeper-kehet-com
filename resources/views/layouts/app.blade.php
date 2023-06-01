@@ -8,8 +8,6 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
-
     <script>
         const updateTheme = () => {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -21,7 +19,7 @@
         updateTheme();
     </script>
 
-    <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased min-h-screen text-gray-600 dark:text-gray-400 dark:bg-gray-900 body-font">
 

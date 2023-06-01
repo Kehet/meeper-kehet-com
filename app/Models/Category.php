@@ -10,10 +10,9 @@ use Spatie\Sluggable\SlugOptions;
 
 class Category extends Model
 {
+
     use HasFactory;
     use HasSlug;
-
-    protected $table = 'categories';
 
     protected $fillable = [
         'name',
@@ -27,8 +26,8 @@ class Category extends Model
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-                          ->generateSlugsFrom('name')
-                          ->saveSlugsTo('slug');
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
     }
 
     public function getRouteKeyName(): string

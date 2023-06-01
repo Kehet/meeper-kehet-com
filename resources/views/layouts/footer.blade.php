@@ -8,7 +8,7 @@
                 <nav class="list-none mb-10">
                     @foreach($tags as $tag)
                         <li>
-                            <a href="{{ route('search', ['query' => $tag->name]) }}"
+                            <a href="{{ route('tags.show', ['tag' => $tag->name]) }}"
                                class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
                                 {{ $tag->name }}
                             </a>

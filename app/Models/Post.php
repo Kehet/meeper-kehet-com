@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Cartalyst\Tags\TaggableInterface;
+use Cartalyst\Tags\TaggableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -9,19 +11,17 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Cartalyst\Tags\TaggableTrait;
-use Cartalyst\Tags\TaggableInterface;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Laravel\Scout\Searchable;
 
 class Post extends Model implements HasMedia, TaggableInterface
 {
-    use HasFactory;
+
     use InteractsWithMedia;
     use TaggableTrait;
     use HasSlug;
-
-    protected $table = 'posts';
+    use Searchable;
 
     protected $fillable = [
         'category_id',
@@ -71,22 +71,19 @@ class Post extends Model implements HasMedia, TaggableInterface
             'title' => $this->title,
             'url' => $this->url,
             'body' => $this->body,
-            'tags' => $this->tags->map(function($tag) {
-                return $tag->name;
-            }),
-            'category' => $this->category->name,
         ];
     }
 
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-                          ->generateSlugsFrom('title')
-                          ->saveSlugsTo('slug');
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
     }
 
     public function getRouteKeyName(): string
     {
         return 'slug';
     }
+
 }

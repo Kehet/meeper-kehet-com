@@ -9,22 +9,20 @@ class Kernel extends ConsoleKernel
 {
     /**
      * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     *
-     * @return void
      */
-    protected function schedule(Schedule $schedule)
+    protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('telescope:prune --hours=48')->daily();
+        $schedule->command('auth:clear-resets')->daily();
+        $schedule->command('media-library:clean')->daily();
+        $schedule->command('model:prune')->daily();
+        $schedule->command('sanctum:prune-expired')->daily();
     }
 
     /**
      * Register the commands for the application.
-     *
-     * @return void
      */
-    protected function commands()
+    protected function commands(): void
     {
         $this->load(__DIR__.'/Commands');
 
