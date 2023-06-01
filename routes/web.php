@@ -20,9 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::resource('posts', PostController::class);
-Route::get('search', SearchController::class)->name('search');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('tags/{tag}', TagController::class)->name('tags.show');
+
+Route::middleware('throttle')->group(function() {
+    Route::get('search', SearchController::class)->name('search');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
