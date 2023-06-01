@@ -2,7 +2,7 @@
     <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap md:text-left text-center order-first">
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="uppercase  title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
+                <h2 class="  title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
                     Tags
                 </h2>
                 <nav class="list-none mb-10">
@@ -12,7 +12,7 @@
                                class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
                                 {{ $tag->name }}
                             </a>
-                            <span class="text-gray-500 text-sm">
+                            <span class="text-gray-500 ">
                                 {{ $tag->count }} posts
                             </span>
                         </li>
@@ -20,7 +20,7 @@
                 </nav>
             </div>
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="uppercase  title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
+                <h2 class="  title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
                     Latest
                 </h2>
                 <nav class="list-none mb-10">
@@ -30,7 +30,7 @@
                                class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
                                 {{ $post->title }}
                             </a>
-                            <span class="text-gray-500 text-sm">
+                            <span class="text-gray-500 ">
                                 <x-time :time="$post->created_at"/>
                             </span>
                         </li>
@@ -38,7 +38,7 @@
                 </nav>
             </div>
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 class="uppercase title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
+                <h2 class=" title-font font-medium text-gray-900 dark:text-white tracking-widest  mb-3">
                     Categories
                 </h2>
                 <nav class="list-none mb-10">
@@ -48,7 +48,7 @@
                                class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
                                 {{ $category->name }}
                             </a>
-                            <span class="text-gray-500 text-sm">
+                            <span class="text-gray-500 ">
                                 {{ $category->posts_count }} posts
                             </span>
                         </li>

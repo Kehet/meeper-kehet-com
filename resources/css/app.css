@@ -15,35 +15,35 @@ body:before {
     background-size: 100% 100%;
     content: '';
     display: block;
-    background-image: linear-gradient(left,
+    background-image: linear-gradient(to right,
         /*RED*/rgba(207, 15, 15, 1) 0%, rgba(207, 15, 15, 1) 18%,
         /*ORANGE*/rgba(255, 160, 0, 1) 18%, rgba(255, 160, 0, 1) 33%,
         /*YELLOW*/rgba(255, 210, 0, 1) 33%, rgba(255, 210, 0, 1) 50%,
         /*GREEN*/rgba(54, 160, 48, 1) 50%, rgba(54, 160, 48, 1) 66%,
         /*BLUE*/rgba(27, 119, 205, 1) 66%, rgba(27, 119, 205, 1) 83%,
         /*PURPLE*/rgba(77, 20, 140, 1) 83%, rgba(77, 20, 140, 1) 100% );
-    background-image: -o-linear-gradient(left,
+    background-image: -o-linear-gradient(to right,
         /*RED*/rgba(207, 15, 15, 1) 0%, rgba(207, 15, 15, 1) 18%,
         /*ORANGE*/rgba(255, 160, 0, 1) 18%, rgba(255, 160, 0, 1) 33%,
         /*YELLOW*/rgba(255, 210, 0, 1) 33%, rgba(255, 210, 0, 1) 50%,
         /*GREEN*/rgba(54, 160, 48, 1) 50%, rgba(54, 160, 48, 1) 66%,
         /*BLUE*/rgba(27, 119, 205, 1) 66%, rgba(27, 119, 205, 1) 83%,
         /*PURPLE*/rgba(77, 20, 140, 1) 83%, rgba(77, 20, 140, 1) 100% );
-    background-image: -moz-linear-gradient(left,
+    background-image: -moz-linear-gradient(to right,
         /*RED*/rgba(207, 15, 15, 1) 0%, rgba(207, 15, 15, 1) 18%,
         /*ORANGE*/rgba(255, 160, 0, 1) 18%, rgba(255, 160, 0, 1) 33%,
         /*YELLOW*/rgba(255, 210, 0, 1) 33%, rgba(255, 210, 0, 1) 50%,
         /*GREEN*/rgba(54, 160, 48, 1) 50%, rgba(54, 160, 48, 1) 66%,
         /*BLUE*/rgba(27, 119, 205, 1) 66%, rgba(27, 119, 205, 1) 83%,
         /*PURPLE*/rgba(77, 20, 140, 1) 83%, rgba(77, 20, 140, 1) 100% );
-    background-image: -webkit-linear-gradient(left,
+    background-image: -webkit-linear-gradient(to right,
         /*RED*/rgba(207, 15, 15, 1) 0%, rgba(207, 15, 15, 1) 18%,
         /*ORANGE*/rgba(255, 160, 0, 1) 18%, rgba(255, 160, 0, 1) 33%,
         /*YELLOW*/rgba(255, 210, 0, 1) 33%, rgba(255, 210, 0, 1) 50%,
         /*GREEN*/rgba(54, 160, 48, 1) 50%, rgba(54, 160, 48, 1) 66%,
         /*BLUE*/rgba(27, 119, 205, 1) 66%, rgba(27, 119, 205, 1) 83%,
         /*PURPLE*/rgba(77, 20, 140, 1) 83%, rgba(77, 20, 140, 1) 100% );
-    background-image: -ms-linear-gradient(left,
+    background-image: -ms-linear-gradient(to right,
         /*RED*/rgba(207, 15, 15, 1) 0%, rgba(207, 15, 15, 1) 18%,
         /*ORANGE*/rgba(255, 160, 0, 1) 18%, rgba(255, 160, 0, 1) 33%,
         /*YELLOW*/rgba(255, 210, 0, 1) 33%, rgba(255, 210, 0, 1) 50%,

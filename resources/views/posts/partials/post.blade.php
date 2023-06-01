@@ -1,10 +1,10 @@
 <div class="py-8 flex dark:border-t-2 dark:border-gray-800 flex-wrap md:flex-nowrap">
     <div class="w-32 md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
         <a href="{{ route('categories.show', [$post->category]) }}"
-           class="uppercase title-font text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
+           class=" title-font text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center">
             {{ $post->category->name }}
         </a>
-        <div class="mt-1 text-gray-500 text-sm">
+        <div class="mt-1 text-gray-500 ">
             <x-time :time="$post->created_at"/>
         </div>
 
@@ -42,7 +42,7 @@
         <div class="mt-3">
             @foreach($post->tags as $tag)
                 <a href="{{ route('tags.show', ['tag' => $tag->name]) }}"
-                   class="text-white dark:text-gray-900 rounded text-xs
+                   class="text-white dark:text-gray-900 rounded 
             bg-yellow-500 hover:bg-yellow-600 duration-300
             mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1">
                    {{ $tag->name }}
