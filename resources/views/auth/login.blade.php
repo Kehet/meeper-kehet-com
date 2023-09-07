@@ -2,6 +2,12 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    @env('local')
+        <div class="space-y-2">
+            <x-login-link email="test@example.com" />
+        </div>
+    @endenv
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
