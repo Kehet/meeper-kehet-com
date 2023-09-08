@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EditPostRequest;
 use App\Http\Requests\NewPostRequest;
+use App\Jobs\FetchScreenshotJob;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,10 @@ class PostController extends Controller
         }
 
         $post->tag($request->input('tags'));
+
+        if($request->has('url')) {
+            FetchScreenshotJob::dispatch($post);
+        }
 
         return redirect()->route('posts.show', [$post]);
     }
