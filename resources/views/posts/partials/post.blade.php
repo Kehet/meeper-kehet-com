@@ -28,11 +28,13 @@
         @endisset
 
         @if($post->hasMedia())
-            <div class="mb-2">
-                <a href="{{ $post->getFirstMedia()->getFullUrl() }}">
-                    {{ $post->getFirstMedia()()->lazy()->attributes(['class' => 'w-full object-cover h-full object-center']) }}
-                </a>
-            </div>
+            @foreach($post->getMedia() as $media)
+                <div class="mb-2">
+                    <a href="{{ $media->getFullUrl() }}">
+                        {{ $media()->lazy()->attributes(['class' => 'w-full max-h-96 object-cover h-full object-center']) }}
+                    </a>
+                </div>
+            @endforeach
         @endisset
 
         <div class="leading-relaxed">
@@ -42,7 +44,7 @@
         <div class="mt-3">
             @foreach($post->tags as $tag)
                 <a href="{{ route('tags.show', ['tag' => $tag->name]) }}"
-                   class="text-white dark:text-gray-900 rounded 
+                   class="text-white dark:text-gray-900 rounded
             bg-yellow-500 hover:bg-yellow-600 duration-300
             mr-1 md:mr-2 mb-2 px-2 md:px-4 py-1">
                    {{ $tag->name }}
