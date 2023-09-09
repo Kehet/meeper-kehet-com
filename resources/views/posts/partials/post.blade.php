@@ -31,7 +31,7 @@
             @foreach($post->getMedia() as $media)
                 <div class="mb-2">
                     <a href="{{ $media->getFullUrl() }}">
-                        {{ $media()->lazy()->attributes(['class' => 'w-full max-h-96 object-cover h-full object-center']) }}
+                        {{ $media()->lazy()->attributes(['class' => 'w-full max-h-96 object-top object-cover object-center']) }}
                     </a>
                 </div>
             @endforeach
