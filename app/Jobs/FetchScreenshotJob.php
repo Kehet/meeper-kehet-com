@@ -34,11 +34,14 @@ class FetchScreenshotJob implements ShouldQueue
 
         Browsershot::url($this->post->url)
             ->setScreenshotType('png')
+            ->windowSize(1920, 1080)
             ->fullPage()
             ->save($tempFile);
 
         $this->post->addMedia($tempFile)
                 ->withResponsiveImages()
-                ->toMediaCollection();
+                ->toMediaCollection('screenshots');
+
+        Log::info('Screenshot captured', ['post_id' => $this->post->id]);
     }
 }
