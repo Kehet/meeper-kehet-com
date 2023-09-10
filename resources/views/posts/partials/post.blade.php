@@ -27,7 +27,7 @@
             </a>
         @endisset
 
-        @if($post->hasMedia())
+        @if($post->hasMedia('*'))
             @foreach($post->getMedia('*') as $media)
                 <div class="mb-2">
                     <a href="{{ $media->getFullUrl() }}">

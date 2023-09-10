@@ -45,7 +45,7 @@ class PostController extends Controller
         $post->tag($request->input('tags'));
 
         if($request->has('url')) {
-            FetchScreenshotJob::dispatch($post);
+            FetchScreenshotJob::dispatch($post)->onQueue('high');
         }
 
         return redirect()->route('posts.show', [$post]);
@@ -85,6 +85,11 @@ class PostController extends Controller
         }
 
         $post->setTags($request->input('tags'));
+
+        if($request->has('url')) {
+            $post->clearMediaCollection('screenshots');
+            FetchScreenshotJob::dispatch($post)->onQueue('high');
+        }
 
         return redirect()->route('posts.show', [$post]);
     }
