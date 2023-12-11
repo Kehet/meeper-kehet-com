@@ -11,7 +11,6 @@ gh pr list --json number | jq '.[].number' -r | while IFS=$'\t' read -r id; do g
 
 Make new release
 ```shell
-export VERSION="1.6.0"
-git flow release start "${VERSION}"
+export VERSION="1.7.0"
 gh workflow run 'Draft new release' -f "version=${VERSION}"
 ```
