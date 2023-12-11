@@ -15,5 +15,3 @@ export VERSION="1.9.0"
 git checkout develop && git push
 gh workflow run 'Draft new release' --ref develop -f "version=${VERSION}"
 ```
-
-test change
