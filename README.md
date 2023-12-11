@@ -13,5 +13,5 @@ Make new release
 ```shell
 export VERSION="1.7.0"
 git checkout develop && git push
-gh workflow run 'Draft new release' -f "version=${VERSION}"
+gh workflow run 'Draft new release' --ref develop -f "version=${VERSION}"
 ```
