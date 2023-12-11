@@ -7,4 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.0] - 2023-12-11
+
 New deploy action system
+
+[Unreleased]: https://github.com/Kehet/meeper-kehet-com/compare/1.9.0...HEAD
+
+[1.9.0]: https://github.com/Kehet/meeper-kehet-com/compare/3c69f41dfffc6ec1a9c98cc1ad2a70cc95d6ca37...1.9.0
