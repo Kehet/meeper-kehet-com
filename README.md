@@ -14,5 +14,4 @@ Make new release
 export VERSION="1.4.0"
 git flow release start "${VERSION}"
 git flow release finish "${VERSION}" --pushproduction --pushdevelop --pushtag
-gh workflow run 'Draft new release' -f "version=${VERSION}"
 ```
