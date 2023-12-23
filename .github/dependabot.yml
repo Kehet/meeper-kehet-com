@@ -30,5 +30,4 @@ updates:
       interval: "weekly"
       day: "friday"
     labels:
-      - action
-      - dependencies
+      - github_actions
