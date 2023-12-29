@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'screenshot-one' => [
+        'key' => env('SCREENSHOT_ONE_KEY'),
+    ],
+
 ];

@@ -10,6 +10,9 @@
 
         @if(\Illuminate\Support\Facades\Auth::check())
             <div class="mt-1">
+                <x-retake-screenshot-button :post="$post" />
+            </div>
+            <div class="mt-1">
                 <x-delete-post-button :post="$post" />
             </div>
         @endif

@@ -6,8 +6,11 @@ use App\Models\Post;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Spatie\Browsershot\Browsershot;
@@ -19,28 +22,53 @@ class FetchScreenshotJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public function __construct( protected Post $post)
+    public function __construct(protected Post $post)
     {
     }
 
     /**
-     * @throws CouldNotTakeBrowsershot
      * @throws FileDoesNotExist
      * @throws FileIsTooBig
+     * @throws RequestException
      */
     public function handle(): void
     {
-        $tempFile = tempnam('/tmp/',  config('app.name')) . '.png';
+        $tempFile = tempnam('/tmp/', config('app.name')).'.png';
 
-        Browsershot::url($this->post->url)
-            ->setScreenshotType('png')
-            ->windowSize(1920, 1080)
-            ->fullPage()
-            ->save($tempFile);
+        if(App::environment('production')) {
+            Http::sink($tempFile)
+                ->connectTimeout(10)
+                ->timeout(70)
+                ->get(sprintf(
+                    'https://api.screenshotone.com/take?%s',
+                    http_build_query([
+                        'access_key'                  => config('services.screenshot-one.key'),
+                        'url'                         => $this->post->url,
+                        'viewport_width'              => 1920,
+                        'viewport_height'             => 1080,
+                        'device_scale_factor'         => 1,
+                        'image_quality'               => 80,
+                        'format'                      => 'png',
+                        'block_ads'                   => 'true',
+                        'block_cookie_banners'        => 'true',
+                        'block_trackers'              => 'true',
+                        'block_banners_by_heuristics' => 'false',
+                        'delay'                       => 0,
+                        'timeout'                     => 60,
+                    ])
+                ))
+                ->throw();
+        } else {
+            Http::sink($tempFile)
+                ->connectTimeout(10)
+                ->timeout(70)
+                ->get('https://placehold.co/1920x1080.png')
+                ->throw();
+        }
 
         $this->post->addMedia($tempFile)
-                ->withResponsiveImages()
-                ->toMediaCollection('screenshots');
+                   ->withResponsiveImages()
+                   ->toMediaCollection('screenshots');
 
         Log::info('Screenshot captured', ['post_id' => $this->post->id]);
     }
