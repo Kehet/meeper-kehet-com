@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.3",
         "cartalyst/tags": "^13.0",
         "doctrine/dbal": "^3.7",
         "guzzlehttp/guzzle": "^7.2",
