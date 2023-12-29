@@ -1,6 +1,7 @@
 name: Create Release Pull Request
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - develop
@@ -10,7 +11,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  masterUpdate:
+  create-release-pull-request:
+    name: Create Release Pull Request
     runs-on: ubuntu-latest
     steps:
 
@@ -20,12 +22,10 @@ jobs:
           ref: master
           token: ${{ secrets.GITHUB_TOKEN }}
 
-
       - name: Reset develop branch on runner
         run: |
           git fetch origin develop:develop
           git reset --hard develop
-
 
       - name: Build Changelog since the latest tag
         id: build_changelog
@@ -40,14 +40,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-
       - name: Choose and set PR title
         id: title
         run: |
           DATE=$(date +%Y-%m-%d)
           SEPERATOR="-"
           for LETTER in {a..z}; do if [[ "$DATE$SEPARATOR$LETTER" > "${{ steps.build_changelog.outputs.latest_tag }}" ]]; then echo "pr_title=$DATE$SEPARATOR$LETTER" >> $GITHUB_OUTPUT && break; fi; done
-
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
