@@ -55,7 +55,6 @@ jobs:
       - name: Prepare Laravel Application
         run: |
           cp .env.ci .env
-          cat .env
           php artisan key:generate
 
       - name: Run tests
