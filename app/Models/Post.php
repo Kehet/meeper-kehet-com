@@ -21,6 +21,7 @@ class Post extends Model implements HasMedia, TaggableInterface
     use InteractsWithMedia;
     use TaggableTrait;
     use HasSlug;
+    use HasFactory;
     use Searchable;
 
     protected $fillable = [
