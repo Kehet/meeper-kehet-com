@@ -21,7 +21,7 @@ jobs:
     steps:
 
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: master
@@ -63,7 +63,7 @@ jobs:
             ${{ steps.build_changelog.outputs.changelog }}
 
       - name: Run deploy script
-        uses: appleboy/ssh-action@v1.0.1
+        uses: appleboy/ssh-action@v1.0.2
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
