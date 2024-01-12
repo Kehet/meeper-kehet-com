@@ -3873,16 +3873,16 @@
         },
         {
             "name": "spatie/image",
-            "version": "3.3.2",
+            "version": "3.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "7a5b1a7f7fd8e69cb901eb2a0af8848d6eea991d"
+                "reference": "bc2c7c72ec5e9c8ce12b38d4db073a13efd6f2ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/7a5b1a7f7fd8e69cb901eb2a0af8848d6eea991d",
-                "reference": "7a5b1a7f7fd8e69cb901eb2a0af8848d6eea991d",
+                "url": "https://api.github.com/repos/spatie/image/zipball/bc2c7c72ec5e9c8ce12b38d4db073a13efd6f2ce",
+                "reference": "bc2c7c72ec5e9c8ce12b38d4db073a13efd6f2ce",
                 "shasum": ""
             },
             "require": {
@@ -3929,7 +3929,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/image/tree/3.3.2"
+                "source": "https://github.com/spatie/image/tree/3.3.3"
             },
             "funding": [
                 {
@@ -3941,7 +3941,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-24T08:42:37+00:00"
+            "time": "2024-01-05T14:07:00+00:00"
         },
         {
             "name": "spatie/image-optimizer",
@@ -4066,16 +4066,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "11.0.3",
+            "version": "11.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "9eab494a7b62ba5f0ba74b7d25e2f82a4f3b201c"
+                "reference": "fded7c97489d1d0d0dac8111a108253b22a5c247"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/9eab494a7b62ba5f0ba74b7d25e2f82a4f3b201c",
-                "reference": "9eab494a7b62ba5f0ba74b7d25e2f82a4f3b201c",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/fded7c97489d1d0d0dac8111a108253b22a5c247",
+                "reference": "fded7c97489d1d0d0dac8111a108253b22a5c247",
                 "shasum": ""
             },
             "require": {
@@ -4159,7 +4159,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.0.3"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.0.5"
             },
             "funding": [
                 {
@@ -4171,24 +4171,24 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-24T08:49:52+00:00"
+            "time": "2024-01-11T09:52:19+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.16.1",
+            "version": "1.16.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "cc7c991555a37f9fa6b814aa03af73f88026a83d"
+                "reference": "e62eeb1fe8a8a0b2e83227a6c279c8c59f7d3a15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/cc7c991555a37f9fa6b814aa03af73f88026a83d",
-                "reference": "cc7c991555a37f9fa6b814aa03af73f88026a83d",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/e62eeb1fe8a8a0b2e83227a6c279c8c59f7d3a15",
+                "reference": "e62eeb1fe8a8a0b2e83227a6c279c8c59f7d3a15",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^9.28|^10.0",
+                "illuminate/contracts": "^9.28|^10.0|^11.0",
                 "php": "^8.0"
             },
             "require-dev": {
@@ -4223,7 +4223,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.1"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.2"
             },
             "funding": [
                 {
@@ -4231,7 +4231,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-23T09:04:39+00:00"
+            "time": "2024-01-11T08:43:00+00:00"
         },
         {
             "name": "spatie/laravel-sluggable",
