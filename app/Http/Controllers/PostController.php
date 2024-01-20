@@ -36,7 +36,7 @@ class PostController extends Controller
         $post = new Post($request->except(['image', 'tags']));
         $request->user()->posts()->save($post);
 
-        if($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $post->addMedia($request->file('image'))
                 ->withResponsiveImages()
                 ->toMediaCollection();
@@ -44,7 +44,7 @@ class PostController extends Controller
 
         $post->tag($request->input('tags'));
 
-        if($request->has('url')) {
+        if ($request->has('url')) {
             FetchScreenshotJob::dispatch($post);
         }
 
@@ -74,11 +74,11 @@ class PostController extends Controller
 
         $post->update($request->except(['image', 'tags']));
 
-        if($request->input('remove_old_image', false) && $post->hasMedia()) {
+        if ($request->input('remove_old_image', false) && $post->hasMedia()) {
             $post->getFirstMedia()->delete();
         }
 
-        if($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $post->addMedia($request->file('image'))
                 ->withResponsiveImages()
                 ->toMediaCollection();
@@ -86,7 +86,7 @@ class PostController extends Controller
 
         $post->setTags($request->input('tags'));
 
-        if($request->has('url')) {
+        if ($request->has('url')) {
             $post->clearMediaCollection('screenshots');
             FetchScreenshotJob::dispatch($post);
         }

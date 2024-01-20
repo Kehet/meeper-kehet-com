@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'ide' => null,
+    'ide' => 'phpstorm',
 
     /*
     |--------------------------------------------------------------------------
@@ -92,10 +92,13 @@ return [
             'title' => 'The usage of private methods is not idiomatic in Laravel.',
         ],
         \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
-            'lineLimit' => 140,
-            'absoluteLineLimit' => 240,
+            'lineLimit' => 120,
+            'absoluteLineLimit' => 120,
             'ignoreComments' => false,
-        ]
+        ],
+        \NunoMaduro\PhpInsights\Domain\Insights\CyclomaticComplexityIsHigh::class => [
+            'maxComplexity' => 10,
+        ],
     ],
 
     /*
