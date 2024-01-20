@@ -14,11 +14,11 @@ class FetchScreenshotsCommand extends Command
 
     public function handle(): void
     {
-        if($this->hasOption('post')) {
+        if ($this->hasOption('post')) {
             foreach ($this->option('post') as $id) {
                 $post = Post::find($id);
 
-                if(is_null($post)) {
+                if (is_null($post)) {
                     $this->warn('Post id ' . $id . ' not found');
                     continue;
                 }

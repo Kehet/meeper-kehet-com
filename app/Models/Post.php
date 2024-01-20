@@ -9,15 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
+use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use Laravel\Scout\Searchable;
 
 class Post extends Model implements HasMedia, TaggableInterface
 {
-
     use InteractsWithMedia;
     use TaggableTrait;
     use HasSlug;
@@ -37,7 +36,7 @@ class Post extends Model implements HasMedia, TaggableInterface
 
     public function getHtmlAttribute(): ?string
     {
-        if(empty($this->body) || $this->isDirty()) {
+        if (! isset($this->body) || $this->isDirty()) {
             return $this->body;
         }
 
@@ -54,15 +53,6 @@ class Post extends Model implements HasMedia, TaggableInterface
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
-    }
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        self::updated(function ($model) {
-            Cache::forget('message|' . $model->id);
-        });
     }
 
     public function toSearchableArray(): array
@@ -87,4 +77,12 @@ class Post extends Model implements HasMedia, TaggableInterface
         return 'slug';
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::updated(function ($model) {
+            Cache::forget('message|' . $model->id);
+        });
+    }
 }

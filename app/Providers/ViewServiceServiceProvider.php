@@ -11,7 +11,6 @@ class ViewServiceServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-
     }
 
     public function boot(): void
@@ -38,9 +37,7 @@ class ViewServiceServiceProvider extends ServiceProvider
         View::composer('posts.partials.form', static function ($view) {
             $view->with('categories', Category::orderBy('name')
                 ->get()
-                ->mapWithKeys(function ($category, $key) {
-                    return [$category->id => $category->name];
-                }));
+                ->mapWithKeys(fn ($category) => [$category->id => $category->name]));
         });
     }
 }

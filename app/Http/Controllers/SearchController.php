@@ -13,7 +13,7 @@ class SearchController extends Controller
         $results = null;
         $showResults = false;
 
-        if (!empty($query) && strlen($query) > 2) {
+        if ($query === '' || strlen($query) > 2) {
             $results = Post::search($query)->paginate();
 
             $showResults = true;
@@ -21,5 +21,4 @@ class SearchController extends Controller
 
         return view('search.search', compact('results', 'query', 'showResults'));
     }
-
 }

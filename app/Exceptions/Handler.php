@@ -23,8 +23,12 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
+        $this->reportable(
+            /**
+             * @phpcsSuppress SlevomatCodingStandard.Functions.UnusedParameter
+             */
+            function (Throwable $e) {
+            }
+        );
     }
 }
