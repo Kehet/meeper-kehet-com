@@ -17,6 +17,7 @@
 
             @auth
                 <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">New Post</x-nav-link>
+                <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">Categories</x-nav-link>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 

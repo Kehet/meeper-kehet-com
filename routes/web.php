@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::resource('posts', PostController::class);
-Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('tags/{tag}', TagController::class)->name('tags.show');
 
 Route::middleware('throttle')->group(function () {
@@ -33,7 +32,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::resource('/categories', CategoryController::class)->except('show');
+
     Route::post('/retake-screenshot/{post}', RetakeScreenshotController::class)->name('retake-screenshot');
 });
+
+Route::resource('categories', CategoryController::class)->only('show');
 
 require __DIR__.'/auth.php';
