@@ -27,6 +27,7 @@ class ViewServiceServiceProvider extends ServiceProvider
 
             $categories = Category::withCount('posts')
                 ->orderBy('posts_count', 'desc')
+                ->take(5)
                 ->get();
 
             $view->with('tags', $tags);

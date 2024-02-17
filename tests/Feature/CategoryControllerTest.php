@@ -10,6 +10,19 @@ class CategoryControllerTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function testIndex(): void
+    {
+        $this->loginUser();
+
+        Category::factory()->count(10)->create();
+
+        $response = $this->get(route('categories.index'));
+
+        $response->assertSuccessful()
+            ->assertViewIs('categories.index')
+            ->assertViewHas('categories');
+    }
+
     public function testShow(): void
     {
         $category = Category::factory()->create();
