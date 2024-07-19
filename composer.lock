@@ -202,16 +202,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.4.0",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "35e8d0af4486141bc745f23a29cc2091eb624a32"
+                "reference": "c51258e759afdb17f1fd1fe83bc12baaef6309d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/35e8d0af4486141bc745f23a29cc2091eb624a32",
-                "reference": "35e8d0af4486141bc745f23a29cc2091eb624a32",
+                "url": "https://api.github.com/repos/composer/semver/zipball/c51258e759afdb17f1fd1fe83bc12baaef6309d6",
+                "reference": "c51258e759afdb17f1fd1fe83bc12baaef6309d6",
                 "shasum": ""
             },
             "require": {
@@ -263,7 +263,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.4.0"
+                "source": "https://github.com/composer/semver/tree/3.4.2"
             },
             "funding": [
                 {
@@ -279,7 +279,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-31T09:50:34+00:00"
+            "time": "2024-07-12T11:35:52+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -3943,16 +3943,16 @@
         },
         {
             "name": "spatie/image",
-            "version": "3.6.4",
+            "version": "3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "324a7bfc7924f8dc7d90777e33097a63f0199b1c"
+                "reference": "3e3ae45c849f07e1efb7ecc6868e75f4d8dc4475"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/324a7bfc7924f8dc7d90777e33097a63f0199b1c",
-                "reference": "324a7bfc7924f8dc7d90777e33097a63f0199b1c",
+                "url": "https://api.github.com/repos/spatie/image/zipball/3e3ae45c849f07e1efb7ecc6868e75f4d8dc4475",
+                "reference": "3e3ae45c849f07e1efb7ecc6868e75f4d8dc4475",
                 "shasum": ""
             },
             "require": {
@@ -3999,7 +3999,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/image/tree/3.6.4"
+                "source": "https://github.com/spatie/image/tree/3.7.1"
             },
             "funding": [
                 {
@@ -4011,7 +4011,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-03T08:10:31+00:00"
+            "time": "2024-07-18T13:07:12+00:00"
         },
         {
             "name": "spatie/image-optimizer",
@@ -4135,16 +4135,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "11.7.3",
+            "version": "11.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "c3828e7558473d9df0803212c68d61d91173a3ab"
+                "reference": "5c3d40cc52b95a9947e1254d9af5465a2ed5cff2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/c3828e7558473d9df0803212c68d61d91173a3ab",
-                "reference": "c3828e7558473d9df0803212c68d61d91173a3ab",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/5c3d40cc52b95a9947e1254d9af5465a2ed5cff2",
+                "reference": "5c3d40cc52b95a9947e1254d9af5465a2ed5cff2",
                 "shasum": ""
             },
             "require": {
@@ -4228,7 +4228,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.7.3"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.7.6"
             },
             "funding": [
                 {
@@ -4240,7 +4240,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-02T13:37:35+00:00"
+            "time": "2024-07-18T11:54:31+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
