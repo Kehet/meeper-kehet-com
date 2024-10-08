@@ -7,7 +7,7 @@ version: 2
 updates:
   - package-ecosystem: "composer"
     directory: "/"
-    target-branch: "develop"
+    target-branch: "release-candidate"
     schedule:
       interval: "weekly"
       day: "friday"
@@ -16,7 +16,7 @@ updates:
       - dependencies
   - package-ecosystem: "npm"
     directory: "/"
-    target-branch: "develop"
+    target-branch: "release-candidate"
     schedule:
       interval: "weekly"
       day: "friday"
@@ -25,7 +25,7 @@ updates:
       - dependencies
   - package-ecosystem: "github-actions"
     directory: "/"
-    target-branch: "develop"
+    target-branch: "release-candidate"
     schedule:
       interval: "weekly"
       day: "friday"
