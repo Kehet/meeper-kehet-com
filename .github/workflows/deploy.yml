@@ -1,4 +1,4 @@
-name: 'Deploy'
+name: Deploy
 
 on:
   workflow_dispatch:
@@ -27,10 +27,20 @@ jobs:
           ref: master
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Reset develop branch on runner
+      - name: Update develop
         run: |
-          git fetch origin develop:develop
-          git reset --hard develop
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global user.name "${GITHUB_ACTOR}"
+          git checkout master
+          git status
+          git pull
+          git checkout develop
+          git pull
+          git status
+          git rebase master
+          git push --force-with-lease
+          git status
+          git checkout master
 
       - name: Build Changelog since the latest tag
         id: build_changelog
@@ -50,7 +60,7 @@ jobs:
         run: |
           DATE=$(date +%Y-%m-%d)
           SEPERATOR="-"
-          for LETTER in {a..z}; do if [[ "$DATE$SEPARATOR$LETTER" > "${{ steps.build_changelog.outputs.latest_tag }}" ]]; then echo "pr_title=$DATE$SEPARATOR$LETTER" >> $GITHUB_OUTPUT && break; fi; done
+          for LETTER in {a..z}; do if [[ "$DATE$SEPARATOR$LETTER" != "${{ steps.build_changelog.outputs.latest_tag }}" ]]; then echo "pr_title=$DATE$SEPARATOR$LETTER" >> $GITHUB_OUTPUT && break; fi; done
 
       - name: Create a GitHub release
         uses: actions/create-release@v1
