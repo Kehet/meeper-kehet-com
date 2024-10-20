@@ -39,6 +39,11 @@ jobs:
           git status
           git rebase master
           git push --force-with-lease
+          git checkout release-candidate
+          git pull
+          git status
+          git rebase master
+          git push --force-with-lease
           git status
           git checkout master
 
@@ -60,7 +65,7 @@ jobs:
         run: |
           DATE=$(date +%Y-%m-%d)
           SEPERATOR="-"
-          for LETTER in {a..z}; do if [[ "$DATE$SEPARATOR$LETTER" != "${{ steps.build_changelog.outputs.latest_tag }}" ]]; then echo "pr_title=$DATE$SEPARATOR$LETTER" >> $GITHUB_OUTPUT && break; fi; done
+          for LETTER in {a..z}; do if [[ "$DATE$SEPARATOR$LETTER" > "${{ steps.build_changelog.outputs.latest_tag }}" ]]; then echo "pr_title=$DATE$SEPARATOR$LETTER" >> $GITHUB_OUTPUT && break; fi; done
 
       - name: Create a GitHub release
         uses: actions/create-release@v1
