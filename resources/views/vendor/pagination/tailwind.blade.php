@@ -6,13 +6,13 @@
                     {!! __('pagination.previous') !!}
                 </span>
             @else
-                <a href="{{ $paginator->previousPageUrl() }}" class="lg:mt-2 xl:mt-0 flex-shrink-0 text-white dark:text-black bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded transition ease-in-out duration-150">
+                <a href="{{ $paginator->previousPageUrl() }}" class="lg:mt-2 xl:mt-0 flex-shrink-0 text-white dark:text-black bg-brand-500 border-0 py-2 px-6 focus:outline-none hover:bg-brand-600 rounded transition ease-in-out duration-150">
                     {!! __('pagination.previous') !!}
                 </a>
             @endif
 
             @if ($paginator->hasMorePages())
-                <a href="{{ $paginator->nextPageUrl() }}" class="lg:mt-2 xl:mt-0 flex-shrink-0 text-white dark:text-black bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded transition ease-in-out duration-150">
+                <a href="{{ $paginator->nextPageUrl() }}" class="lg:mt-2 xl:mt-0 flex-shrink-0 text-white dark:text-black bg-brand-500 border-0 py-2 px-6 focus:outline-none hover:bg-brand-600 rounded transition ease-in-out duration-150">
                     {!! __('pagination.next') !!}
                 </a>
             @else
@@ -69,7 +69,7 @@
                             @foreach ($element as $page => $url)
                                 @if ($page == $paginator->currentPage())
                                     <span aria-current="page">
-                                        <span class="relative inline-flex items-center px-4 py-2 -ml-px  font-medium text-white dark:text-black  border border-gray-300 dark:border-gray-600 cursor-default leading-5 bg-yellow-500">{{ $page }}</span>
+                                        <span class="relative inline-flex items-center px-4 py-2 -ml-px  font-medium text-white dark:text-black  border border-gray-300 dark:border-gray-600 cursor-default leading-5 bg-brand-500">{{ $page }}</span>
                                     </span>
                                 @else
                                     <a href="{{ $url }}" class="relative inline-flex items-center px-4 py-2 -ml-px  font-medium  border border-gray-300 dark:border-gray-600 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150" aria-label="{{ __('Go to page :page', ['page' => $page]) }}">

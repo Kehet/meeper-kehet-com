@@ -12,10 +12,6 @@ export default {
 
     theme: {
         extend: {
-            colors: {
-                gray: colors.neutral,
-                yellow: colors.amber,
-            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },

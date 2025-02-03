@@ -1,15 +1,10 @@
 @props(['post'])
 
-<div class="mt-1">
-    <form method="POST" action="{{ route('posts.destroy', [$post]) }}">
-        @csrf
-        @method('DELETE')
+<form method="POST" action="{{ route('posts.destroy', [$post]) }}" class="inline ">
+    @csrf
+    @method('DELETE')
 
-        <a href="{{ route('posts.edit', [$post]) }}"
-           class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center mt-4">
-            {{ __('Edit') }}
-        </a> |
-        <a href="" class="text-yellow-500 dark:text-yellow-400 hover:underline inline-flex items-center mt-4"
-           onclick="event.preventDefault(); this.closest('form').submit();">{{ __('Delete') }}</a>
-    </form>
-</div>
+    <a href=""
+       class="font-medium text-brand-600 hover:text-brand-400 dark:text-brand-400 dark:hover:text-brand-300"
+       onclick="event.preventDefault(); this.closest('form').submit();">{{ __('Delete') }}</a>
+</form>
