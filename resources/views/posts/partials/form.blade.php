@@ -8,7 +8,7 @@
     <div class="p-2 w-full">
         <label class="block inline-flex items-center mt-3">
             <input type="checkbox" name="remove_old_image"
-                   class="form-checkbox h-5 w-5 text-yellow-600"
+                   class="form-checkbox h-5 w-5 text-brand-600"
                    checked="{{ old('remove_old_image', false) ? 'checked' : '' }}"
                    value="1"/>
             <span class="ml-2 text-gray-700">

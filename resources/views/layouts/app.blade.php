@@ -23,11 +23,19 @@
 </head>
 <body class="font-sans antialiased min-h-screen text-gray-600 dark:text-gray-400 dark:bg-gray-900 body-font">
 
+<div
+    x-data="{ userDropdownOpen: false, mobileNavOpen: false }"
+    id="page-container"
+    class="mx-auto flex min-h-dvh w-full min-w-80 flex-col bg-gray-100 dark:bg-gray-900 dark:text-gray-100"
+>
+
 @include('layouts.header')
 
 {{ $slot }}
 
 @include('layouts.footer')
+
+</div>
 
 </body>
 </html>
