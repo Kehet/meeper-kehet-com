@@ -21,7 +21,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased min-h-screen text-gray-600 dark:text-gray-400 dark:bg-gray-900 body-font">
+<body class="font-sans antialiased min-h-screen">
 
 <div
     x-data="{ userDropdownOpen: false, mobileNavOpen: false }"

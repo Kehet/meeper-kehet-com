@@ -42,9 +42,10 @@
                 <div class="space-y-4 sm:space-y-10">
                     @each('posts.partials.post', $posts, 'post', 'posts.partials.empty')
                 </div>
+
+                {{ $posts->links() }}
             </div>
 
-            {{ $posts->links() }}
         </div>
 
     </main>
