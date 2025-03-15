@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\Post;
@@ -13,7 +15,7 @@ class SearchController extends Controller
         $results = null;
         $showResults = false;
 
-        if ($query === '' || strlen($query) > 2) {
+        if ($query !== null && $query !== '' && strlen($query) > 2) {
             $results = Post::search($query)->paginate();
 
             $showResults = true;

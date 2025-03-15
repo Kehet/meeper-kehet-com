@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Cartalyst\Tags\TaggableInterface;
@@ -77,11 +79,11 @@ class Post extends Model implements HasMedia, TaggableInterface
         return 'slug';
     }
 
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
-        self::updated(function ($model) {
+        self::updated(function ($model): void {
             Cache::forget('message|' . $model->id);
         });
     }

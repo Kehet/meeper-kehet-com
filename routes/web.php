@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -24,11 +26,11 @@ Route::resource('posts', PostController::class);
 Route::resource('/categories', CategoryController::class)->except('show');
 Route::get('tags/{tag}', TagController::class)->name('tags.show');
 
-Route::middleware('throttle')->group(function () {
+Route::middleware('throttle')->group(function (): void {
     Route::get('search', SearchController::class)->name('search');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function (): void {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Jobs;
 
 use App\Models\Post;
@@ -42,10 +44,6 @@ class FetchScreenshotJob implements ShouldQueue
     }
 
     /**
-     * @param  string  $tempFile
-     *
-     * @return void
-     *
      * @throws RequestException
      */
     public function makeRequest(string $tempFile): void
@@ -67,9 +65,6 @@ class FetchScreenshotJob implements ShouldQueue
             ->throw();
     }
 
-    /**
-     * @return string
-     */
     public function getScreenshotOneOptions(): string
     {
         return http_build_query([
