@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use App\Models\Category;
@@ -15,7 +17,7 @@ class ViewServiceServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        View::composer('layouts.footer', static function ($view) {
+        View::composer('layouts.footer', static function ($view): void {
             $tags = Post::allTags()
                 ->orderBy('count', 'desc')
                 ->take(5)
@@ -35,7 +37,7 @@ class ViewServiceServiceProvider extends ServiceProvider
             $view->with('categories', $categories);
         });
 
-        View::composer('posts.partials.form', static function ($view) {
+        View::composer('posts.partials.form', static function ($view): void {
             $view->with('categories', Category::orderBy('name')
                 ->get()
                 ->mapWithKeys(fn ($category) => [$category->id => $category->name]));

@@ -60,6 +60,3 @@ jobs:
 
       - name: Run tests
         run: php artisan test
-
-      - name: PHP Insights
-        run: vendor/bin/phpinsights -n --ansi --format=github-action

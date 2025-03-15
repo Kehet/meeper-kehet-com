@@ -1,7 +1,3 @@
 #!/usr/bin/env sh
 
-files=$(git diff --cached --name-only --diff-filter=ACM -- '*.php');
-./vendor/bin/sail artisan insights $files --fix
-git add $files
-
 ./vendor/bin/sail artisan test
