@@ -27,26 +27,6 @@ jobs:
           ref: master
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update develop
-        run: |
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git config --global user.name "${GITHUB_ACTOR}"
-          git checkout master
-          git status
-          git pull
-          git checkout develop
-          git pull
-          git status
-          git rebase master
-          git push --force-with-lease
-          git checkout release-candidate
-          git pull
-          git status
-          git rebase master
-          git push --force-with-lease
-          git status
-          git checkout master
-
       - name: Build Changelog since the latest tag
         id: build_changelog
         run: |
