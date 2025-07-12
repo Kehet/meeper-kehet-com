@@ -8,4 +8,5 @@ permissions:
 
 jobs:
   dependabot:
+    if: ${{ github.actor == 'dependabot[bot]' }}
     uses: Kehet/shared-github-workflows/.github/workflows/dependabot-auto-merge.yml@master
