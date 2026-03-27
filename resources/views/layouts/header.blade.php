@@ -31,7 +31,7 @@
                 <x-search class="mx-3" />
 
                 @auth
-                    <form method="POST" action="{{ route('auth.logout') }}">
+                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
                         <x-nav-link href="" onclick="event.preventDefault();this.closest('form').submit();">
@@ -41,7 +41,7 @@
                 @endauth
 
                 @guest
-                    <x-nav-link :href="route('auth.redirect')">{{ __('Login') }}</x-nav-link>
+                    <x-nav-link :href="route('login')">{{ __('Login') }}</x-nav-link>
                 @endguest
 
                 <!-- Toggle Mobile Navigation -->
