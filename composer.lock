@@ -2140,16 +2140,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v5.25.0",
+            "version": "v5.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "231f572e1a37c9ca1fb8085e9fb8608285beafb3"
+                "reference": "1d26f0c653a5f0e88859f4197830a29fe0cc59d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/231f572e1a37c9ca1fb8085e9fb8608285beafb3",
-                "reference": "231f572e1a37c9ca1fb8085e9fb8608285beafb3",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/1d26f0c653a5f0e88859f4197830a29fe0cc59d0",
+                "reference": "1d26f0c653a5f0e88859f4197830a29fe0cc59d0",
                 "shasum": ""
             },
             "require": {
@@ -2208,7 +2208,7 @@
                 "issues": "https://github.com/laravel/socialite/issues",
                 "source": "https://github.com/laravel/socialite"
             },
-            "time": "2026-02-27T13:56:35+00:00"
+            "time": "2026-03-24T18:37:47+00:00"
         },
         {
             "name": "laravel/telescope",
@@ -3768,16 +3768,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.49",
+            "version": "3.0.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "6233a1e12584754e6b5daa69fe1289b47775c1b9"
+                "reference": "aa6ad8321ed103dc3624fb600a25b66ebf78ec7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/6233a1e12584754e6b5daa69fe1289b47775c1b9",
-                "reference": "6233a1e12584754e6b5daa69fe1289b47775c1b9",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/aa6ad8321ed103dc3624fb600a25b66ebf78ec7b",
+                "reference": "aa6ad8321ed103dc3624fb600a25b66ebf78ec7b",
                 "shasum": ""
             },
             "require": {
@@ -3858,7 +3858,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.49"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.50"
             },
             "funding": [
                 {
@@ -3874,7 +3874,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-01-27T09:17:28+00:00"
+            "time": "2026-03-19T02:57:58+00:00"
         },
         {
             "name": "psr/cache",
