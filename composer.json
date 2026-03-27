@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "ext-gd": "*",
         "cartalyst/tags": "^14.0",
         "doctrine/dbal": "^3.7",
         "guzzlehttp/guzzle": "^7.2",
@@ -16,6 +17,7 @@
         "laravel/telescope": "^5.0",
         "laravel/tinker": "^3.0",
         "meilisearch/meilisearch-php": "^1.16",
+        "spatie/browsershot": "^5.2",
         "spatie/laravel-login-link": "^1.1",
         "spatie/laravel-medialibrary": "^11.0",
         "spatie/laravel-sluggable": "^3.5"

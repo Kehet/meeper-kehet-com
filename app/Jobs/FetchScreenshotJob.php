@@ -8,12 +8,11 @@ use App\Models\Post;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Http\Client\RequestException;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Spatie\Browsershot\Browsershot;
+use Spatie\Browsershot\Exceptions\CouldNotTakeBrowsershot;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
@@ -28,7 +27,7 @@ class FetchScreenshotJob implements ShouldQueue
     /**
      * @throws FileDoesNotExist
      * @throws FileIsTooBig
-     * @throws RequestException
+     * @throws CouldNotTakeBrowsershot
      */
     public function handle(): void
     {
@@ -44,43 +43,16 @@ class FetchScreenshotJob implements ShouldQueue
     }
 
     /**
-     * @throws RequestException
+     * @throws CouldNotTakeBrowsershot
      */
-    public function makeRequest(string $tempFile): void
+    protected function makeRequest(string $tempFile): void
     {
-        $client = Http::sink($tempFile)
-            ->connectTimeout(10)
-            ->timeout(70);
-
-        if (App::environment('production')) {
-            $client->get(sprintf(
-                'https://api.screenshotone.com/take?%s',
-                $this->getScreenshotOneOptions()
-            ))
-                ->throw();
-            return;
-        }
-
-        $client->get('https://placehold.co/1920x1080.png')
-            ->throw();
-    }
-
-    public function getScreenshotOneOptions(): string
-    {
-        return http_build_query([
-            'access_key' => config('services.screenshot-one.key'),
-            'url' => $this->post->url,
-            'viewport_width' => 1920,
-            'viewport_height' => 1080,
-            'device_scale_factor' => 1,
-            'image_quality' => 80,
-            'format' => 'png',
-            'block_ads' => 'true',
-            'block_cookie_banners' => 'true',
-            'block_trackers' => 'true',
-            'block_banners_by_heuristics' => 'false',
-            'delay' => 0,
-            'timeout' => 60,
-        ]);
+        Browsershot::url($this->post->url)
+            ->noSandbox()
+            ->windowSize(1920, 1080)
+            ->deviceScaleFactor(1)
+            ->dismissDialogs()
+            ->timeout(60)
+            ->save($tempFile);
     }
 }
