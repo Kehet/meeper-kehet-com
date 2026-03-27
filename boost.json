@@ -1,0 +1,20 @@
+{
+    "agents": [
+        "junie",
+        "claude_code"
+    ],
+    "guidelines": true,
+    "mcp": true,
+    "nightwatch_mcp": false,
+    "packages": [
+        "spatie/laravel-medialibrary"
+    ],
+    "sail": true,
+    "skills": [
+        "laravel-best-practices",
+        "scout-development",
+        "socialite-development",
+        "tailwindcss-development",
+        "medialibrary-development"
+    ]
+}
