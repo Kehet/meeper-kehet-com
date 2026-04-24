@@ -15,7 +15,7 @@
     "laravel-vite-plugin": "^3.0.1",
     "postcss": "^8.5.10",
     "puppeteer": "^24.42.0",
-    "tailwindcss": "^4.2.0",
+    "tailwindcss": "^4.2.4",
     "vite": "^8.0.10"
   },
   "dependencies": {
